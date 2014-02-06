@@ -50,11 +50,9 @@ In order to do this, you should subclass
 
 `get_password()` - This should return a plain text password, or something that can be used in it's place, such as a token. Exactly what is used and how it's generated must be pre-negotiated with all clients.
 
-
 `get_counter(server_nonce, client_nonce)` - This should return an integer, which should be equal to the last call to `set_counter` or `None` if there was not previously a counter set.
 
-
-`def set_counter(server_nonce, client_nonce, counter)` - This method should store the counter, to be returned at a later date when `get_counter` is called.
+`set_counter(server_nonce, client_nonce, counter)` - This method should store the counter, to be returned at a later date when `get_counter` is called.
 
 Once you've implimented a new backend, you can use it with the `DIGESTAUTH_BACKEND` setting.
 
