@@ -23,10 +23,6 @@ urlpatterns = patterns(
     MockView.as_view(authentication_classes=[DigestAuthentication])))
 
 
-<<<<<<< HEAD
-def build_digest_header(username, password, challenge_header, method, path,
-                        nonce_count=1, cnonce=None):
-=======
 def build_basic_header(username, password):
     credentials = '%s:%s' % (username, password)
     base64_credentials = base64.b64encode(
@@ -35,8 +31,8 @@ def build_basic_header(username, password):
     return 'Basic %s' % base64_credentials
 
 
-def build_digest_header(username, password, challenge_header, method, path):
->>>>>>> upstream/master
+def build_digest_header(username, password, challenge_header, method, path,
+                        nonce_count=1, cnonce=None):
     challenge_data = parse_dict_header(challenge_header.replace('Digest ', ''))
     realm = challenge_data['realm']
     nonce = challenge_data['nonce']
